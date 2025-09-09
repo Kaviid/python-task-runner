@@ -1,0 +1,5 @@
+# Python Task Runner dependencies
+# This project is built only with Python's standard library
+# Works with Python 3.9+
+
+python>=3.9
