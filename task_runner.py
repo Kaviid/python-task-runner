@@ -62,7 +62,7 @@ if task_name not in enabled_task_names and task_name != 'all':
     print(f"Task '{task_name}' is not enabled or does not exist.")
     sys.exit(1)
 
-if task_name == 'all' : #If u raise error look here !!!!!!!!!!!!!!!
+if task_name == 'all' : #If u raise error look here !!!!!!!!!!!!!!
     for str, obj in enabled_task_names.items():
         obj()
 elif task_name in enabled_task_names:
