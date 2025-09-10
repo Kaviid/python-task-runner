@@ -1,0 +1,7 @@
+{
+  "tasks": [
+    {"name": "daily_backup", "enabled": true},
+    {"name": "generate_report", "enabled": false},
+    {"name": "send_email", "enabled": true}
+  ]
+}
