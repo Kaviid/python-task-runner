@@ -22,3 +22,17 @@ import functools
 import json
 
 print("Starting Task Runner...")
+
+path = Path(__file__).parent / "tasks.json"
+
+with Path(path).open('r', encoding='utf-8') as f:
+    tasks = json.load(f)
+
+true_task = []
+for key, value in tasks.items():
+    for task in value:
+        #print(f"{task['name']} : {task['enabled']}")
+        if task['enabled'] == True:
+            true_task.append(task['name'])
+
+print(f"Running Task: {true_task}")
