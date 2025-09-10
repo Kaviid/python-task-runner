@@ -1,0 +1,31 @@
+
+=== Session 2025-09-10 23:44:28 ===
+Requested: all
+[2025-09-10 23:44:28] SUCCESS daily_backup in 0.301s
+[2025-09-10 23:44:29] FAIL send_email in 0.201s
+Traceback (most recent call last):
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 69, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 123, in send_email
+    raise ValueError("Email server not reachable (intentional test failure).")
+ValueError: Email server not reachable (intentional test failure).
+
+[2025-09-10 23:44:29] Retrying send_email... (1/2)
+[2025-09-10 23:44:29] FAIL send_email in 0.201s
+Traceback (most recent call last):
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 69, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 123, in send_email
+    raise ValueError("Email server not reachable (intentional test failure).")
+ValueError: Email server not reachable (intentional test failure).
+
+[2025-09-10 23:44:29] Retrying send_email... (2/2)
+[2025-09-10 23:44:29] FAIL send_email in 0.203s
+Traceback (most recent call last):
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 69, in wrapper
+    result = func(*args, **kwargs)
+  File "E:\Python\Python Real world problems + GitHub\Error-Logging Task Runner with Scheduling & Retry\python-task-runner\test.py", line 123, in send_email
+    raise ValueError("Email server not reachable (intentional test failure).")
+ValueError: Email server not reachable (intentional test failure).
+
+=== End Session (fail=True) ===
