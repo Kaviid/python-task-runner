@@ -20,9 +20,9 @@ import runpy
 import traceback
 import functools
 import json
-import datetime
-import time
+from datetime import datetime
 
+now = datetime.now()
 print("Starting Task Runner...\n")
 
 #Functions.....
@@ -67,3 +67,14 @@ if task_name == 'all' : #If u raise error look here !!!!!!!!!!!!!!!
         obj()
 elif task_name in enabled_task_names:
     enabled_task_names[task_name]()
+
+
+#Logging file setup...
+log_dir = Path(__file__).parent / 'logs'
+log_dir.mkdir(parents=True, exist_ok=True)
+log_file = log_dir / 'runner.log'
+log_file.touch(exist_ok=True)
+
+date_time_stamp = now.strftime("%Y-%m-%d %H:%M:%S")
+with Path(log_file).open('a', encoding='utf-8') as log:
+    log.write(date_time_stamp + "\n")
