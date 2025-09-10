@@ -21,4 +21,47 @@ import traceback
 import functools
 import json
 
-print("Starting Task Runner...")
+print("Starting Task Runner...\n")
+
+#Functions.....
+def daily_backup():
+    print('Hello!, This is daily_backup function')
+
+def generate_report():
+    print('Hello!, This is generate_report function')
+
+def send_email():
+    #raise ValueError("Email server not reachable")
+    print('Hello!, This is send_email function')
+
+path = Path(__file__).parent / "tasks.json" #Path to tasks.json file
+
+with Path(path).open('r', encoding='utf-8') as f:
+    tasks_json_file_content = json.load(f)
+
+enabled_task_names = {} #Enabled func names...
+for key, value in tasks_json_file_content.items():
+    for task in value:
+        #print(f"{task['name']} : {task['enabled']}")
+        if task['enabled'] == True:  #If enabled is True add to dict
+            func = globals()[task['name']]
+            enabled_task_names[task['name']] = func
+
+#print(f"Running Task: {enabled_task_names}")
+#print(f"Running Task: {tasks_json_file_content}")
+
+if len(sys.argv) != 2:
+    print("Usage: python task_runner.py [task_name]")
+    sys.exit(1)
+
+task_name = sys.argv[1]
+
+if task_name not in enabled_task_names and task_name != 'all':
+    print(f"Task '{task_name}' is not enabled or does not exist.")
+    sys.exit(1)
+
+if task_name == 'all' : #If u raise error look here !!!!!!!!!!!!!!!
+    for str, obj in enabled_task_names.items():
+        obj()
+elif task_name in enabled_task_names:
+    enabled_task_names[task_name]()
