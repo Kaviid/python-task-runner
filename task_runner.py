@@ -64,7 +64,4 @@ if task_name == 'all' : #If u raise error look here !!!!!!!!!!!!!!!
     for str, obj in enabled_task_names.items():
         obj()
 elif task_name in enabled_task_names:
-    func = tasks_json_file_content.get(task_name)
-    if func:
-        func()
-
+    enabled_task_names[task_name]()
